@@ -5,8 +5,8 @@ Moreover, Hoa aims at being a bridge between industrial and research worlds.
 
 # Contributions/Atom/Pp
 
-This repository contains Atom tools for the PP grammar description language from
-[the PHP `Hoa\Compiler`
+This repository contains [Atom](https://atom.io/) tools for the PP grammar
+description language from [the PHP `Hoa\Compiler`
 library](http://central.hoa-project.net/Resource/Library/Compiler).
 
 ## Installation
