@@ -11,7 +11,14 @@ library](http://central.hoa-project.net/Resource/Library/Compiler).
 
 ## Installation
 
-…
+Installing these tools is as easy as running:
+
+```sh
+apm install hoa-compiler-plugin
+```
+
+Or using the Atom GUI through `Atom` > `Preferences` > `Install`, search for
+`hoa-compiler-plugin` and click on the `Install` button.
 
 ## Quick usage
 
