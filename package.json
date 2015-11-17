@@ -1,7 +1,7 @@
 {
   "name": "hoa-compiler-plugin",
   "version": "0.0.0",
-  "description": "Atom tools tools for the PP grammar description language from the PHP Hoa\\Compiler library",
+  "description": "PP —the grammar description language from Hoa\\Compiler— support in Atom.",
   "keywords": ["php", "hoa", "compiler", "pp", "grammar", "language"],
   "activationCommands": {
     "atom-workspace": "atom-compiler-plugin:toggle"
