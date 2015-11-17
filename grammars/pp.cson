@@ -1,0 +1,156 @@
+# Hoa
+#
+#
+# New BSD License
+#
+# Copyright © 2007-2015, Hoa community. All rights reserved.
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#     * Redistributions of source code must retain the above copyright
+#       notice, this list of conditions and the following disclaimer.
+#     * Redistributions in binary form must reproduce the above copyright
+#       notice, this list of conditions and the following disclaimer in the
+#       documentation and/or other materials provided with the distribution.
+#     * Neither the name of the Hoa nor the names of its contributors may be
+#       used to endorse or promote products derived from this software without
+#       specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS AND CONTRIBUTORS BE
+# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+
+'scopeName': 'source.hoa.compiler.pp'
+'name': 'Hoa Compiler PP'
+'fileTypes': [
+    'pp'
+]
+'firstLineMatch': '^%(?:skip|token)\\b'
+'foldingStartMarker': '^(?:#?\w+:|//)'
+'foldingStopMarker': '^$'
+'patterns': [
+    { 'include': '#punctuation' }
+    { 'include': '#comment' }
+    { 'include': '#skip' }
+    { 'include': '#token' }
+    { 'include': '#node' }
+    { 'include': '#rule' }
+    { 'include': '#token_capture' }
+    { 'include': '#token_nocapture' }
+    { 'include': '#rule_call' }
+    { 'include': '#node_call' }
+]
+'repository':
+    'punctuation':
+        'captures':
+            '1':
+                'name': 'punctuation'
+        'match': '(\\*|\\+|\\?|\\||->|\\(|\\)|\\{|\\}|\\[|\\])'
+
+    'comment':
+        'captures':
+            '1':
+                'name': 'line.comment'
+        'match': '^(//.*)$'
+
+    'skip':
+        'captures':
+            '1':
+                'name': 'skip.line'
+            '2':
+                'name': 'skip.keyword'
+            '3':
+                'name': 'skip.constant.name'
+            '4':
+                'name': 'skip.string.value'
+        'match': '^((%skip)\\s+([^\\s]+)\\s+([^\\s]+))'
+
+    'token':
+        'captures':
+            '1':
+                'name': 'token.line'
+            '2':
+                'name': 'keyword'
+            '3':
+                'name': 'string.namespace'
+            '4':
+                'name': 'punctuation'
+            '5':
+                'name': 'constant.name'
+            '6':
+                'name': 'string.value'
+            '7':
+                'name': 'punctuation'
+            '8':
+                'name': 'string.namespace'
+        'match': '^((%token)\\s+(?:([^\\s]+)(::))?([^\\s]+)\\s+([^\\s]+)\\s+(?:(->)\\s+([^\\s]+))?)'
+
+    'node':
+        'captures':
+            '1':
+                'name': 'node.line'
+            '2':
+                'name': 'variable.name'
+            '3':
+                'name': 'punctuation'
+        'match': '^((#\\w+)(:))'
+
+    'rule':
+        'captures':
+            '1':
+                'name': 'rule.line'
+            '2':
+                'name': 'variable.name'
+            '3':
+                'name': 'punctuation'
+        'match': '^((\\w+)(:))'
+
+    'token_capture':
+        'captures':
+            '1':
+                'name': 'token.capture'
+            '2':
+                'name': 'punctuation'
+            '3':
+                'name': 'constant.name'
+            '4':
+                'name': 'punctuation'
+        'match': '((<)([^\\s>]+)(>))'
+
+    'token_nocapture':
+        'captures':
+            '1':
+                'name': 'token.nocapture'
+            '2':
+                'name': 'punctuation'
+            '3':
+                'name': 'constant.name'
+            '4':
+                'name': 'punctuation'
+        'match': '((::)([^\\s:]+)(::))'
+
+    'rule_call':
+        'captures':
+            '1':
+                'name': 'rule.call'
+            '2':
+                'name': 'variable.name'
+        'match': '(([^\\s]+)\\(\\))'
+
+    'node_call':
+        'captures':
+            '1':
+                'name': 'node.call'
+            '2':
+                'name': 'variable.name'
+            '3':
+                'name': 'punctuation'
+        'match': '(((#)\\w+))'

@@ -1,0 +1,6 @@
+'.source.hoa.compiler.pp':
+    'editor':
+        'autoIndentOnPaste': true
+        'commentStart': '//'
+        'foldEndPattern': '^$'
+        'increaseIndentPattern': '^#?[^\\s]+:$'
