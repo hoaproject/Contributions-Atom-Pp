@@ -9,6 +9,15 @@ This repository contains [Atom](https://atom.io/) tools for the PP grammar
 description language from [the PHP `Hoa\Compiler`
 library](http://central.hoa-project.net/Resource/Library/Compiler).
 
+It provides :
+
+* An Atom grammar for the PP language,
+* Syntax highlighting,
+* Auto-indentation,
+* Folding for comments, rules and nodes.
+
+![Aom PP preview](resources/preview.png)
+
 ## Installation
 
 Installing these tools is as easy as running:
